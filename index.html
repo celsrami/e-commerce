@@ -1,0 +1,188 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- GOOGLE FONT -->
+
+        <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- CSS -->
+        <link rel="stylesheet" href="./css/main.css"> 
+        <link rel="stylesheet" href="./css/header.css"> 
+         
+        <title>Document</title>
+
+    </head>
+    <body>
+
+        <!-- HEADER -->
+    <header class="header">
+        <nav class="header__nav">
+            <ul class="header__item">
+                <li class="header__items" >
+                    <div class="header__button" >
+                        <i class="fa-solid fa-house header__icon"></i>
+                        <a href="#" class="header__link">Inicio</a>
+                     </div>
+                 </li>
+
+                 <li class="header__items header__items--click " >
+                    <div class="header__button header__submenu js-submenu" >
+                        <i class="fa fa-car header__icon"></i>
+                        <a href="#" class="header__link">Servicios</a>
+                        <i class="fa-solid fa-chevron-right header__arrow"></i>
+                     </div>
+                     <ul class="header__items--show">
+                        <li class="header__items--inside">
+                            <a href="#" class="header__link header__link--inside">Enlace</a> 
+                         </li>
+                         <li class="header__items--inside">
+                            <a href="#" class="header__link header__link--inside">Enlace</a> 
+                        </li>    
+                     </ul>
+                 </li>
+
+                 <li class="header__items" >
+                    <div class="header__button" >
+                        <i class="fa-solid fa-envelope header__icon"></i>
+                        <a href="#" class="header__link">Inicio</a>
+                     </div>
+                 </li>
+
+                 <li class="header__items header__items--click"  >
+                    <div class="header__button header__submenu js-submenu" >
+                        <i class="fa-solid fa-envelope header__icon"></i>
+                        <a href="#" class="header__link">Servicios</a>
+                        <i class="fa-solid fa-chevron-right header__arrow"></i>
+                     </div>
+                     <ul class="header__items--show">
+                        <li class="header__items--inside">
+                            <a href="#" class="header__link header__link--inside">Enlace</a> 
+                         </li>
+                         <li class="header__items--inside">
+                            <a href="#" class="header__link header__link--inside">Enlace</a> 
+                        </li>
+                        <li class="header__items--inside">
+                                <a href="#" class="header__link header__link--inside">Enlace</a> 
+                        </li>      
+                     </ul>
+                 </li>
+                 <li class="header__items" >
+                    <div class="header__button" >
+                        <i class="fa-solid fa-phone header__icon"></i>
+                        <a href="#" class="header__link">Contacto</a>
+                     </div>
+                 </li>
+            </ul>
+        </nav>
+        
+			
+		
+    </header>
+
+        <main class="main">
+             <!-- HERO -->
+            <section class="hero">
+                <div class="hero__img"></div>
+                 <!-- <img  src="./img/fotohero.jpg" class="hero__img" alt="hero"/>  -->
+                <article class="hero__article" >
+                    <h1 class="hero__title"> Elegancia que Impacta</h1>
+                    <h2 class="hero__subtitle">Define tu Estilo </h2>
+                    <a class="hero__button" href="#">Button</a>
+                </article>
+            </section>
+
+            <!-- LISTADO DE PRENDAS -->
+            <section class="shop">
+                <ul class="shop__ul">
+                    <li class="shop__li" >
+                        <img  src="./img/fotohero.jpg" class="shop__img" alt="Img"/>
+                        <article class="shop__article">
+                        <h3 class="shop__title">Camiseta Samanta</h3> 
+                        <div class="shop__ray"></div>
+                        <h3 class="shop__price">18.00€</h3> 
+                         <button id=${product.id} class="shop__btn"><i class="fa-solid fa-cart-shopping hero_btn-icon"></i></button>
+                      </article> 
+                     </li>  
+             <li class="shop__li" >
+                <img  src="./img/fotohero.jpg" class="shop__img" alt="Img"/>
+                <article class="shop__article">
+                <h3 class="shop__title">Camiseta Samanta</h3> 
+                <div class="shop__ray"></div>
+                <h3 class="shop__price">18.00€</h3> 
+                 <button id=${product.id} class="shop__btn"><i class="fa-solid fa-cart-shopping"></i></button>
+              </article> 
+             </li> 
+             <li class="shop__li" >
+                <img  src="./img/fotohero.jpg" class="shop__img" alt="Img"/>
+                <article class="shop__article">
+                <h3 class="shop__title">Camiseta Samanta</h3> 
+                <div class="shop__ray"></div>
+                <h3 class="shop__price">18.00€</h3> 
+                 <button id=${product.id} class="shop__btn"><i class="fa-solid fa-cart-shopping"></i></button>
+              </article> 
+             </li> 
+            
+                </ul>
+            </section>
+
+             <!-- BOTTON CESTA -->
+
+             <section class='buttonopen' id='open'>
+               
+                <i class="fa-solid fa-cart-shopping buttonopen__icon"></i>
+                <h3 class='buttonopen__title'>
+                  Cesta<br>
+                  de compra
+                </h3>
+              </section>
+
+                  <!-- CESTA COMPRA -->
+           
+            <section class="buy"  id="modal">
+                <div class="buy__close" id="close"><i class="fa-solid fa-x"></i></div>
+            <table class="buy__table">
+                <thead class="">
+                  <tr class="buy__thead buy__fila">
+                    <td class="buy__title">Producto</td>
+                    <td class="buy__title">Precio</td>
+                    <td class="buy__title">Unidades</td>
+                    <td class="buy__title buy__colum-total">Total</td>
+                  </tr>
+                </thead>
+                <tbody class="buy__tbody">
+                  <tr class="buy__fila">
+                    <td class="buy__colum-one ">JavaScript</td>
+                    <td class="buy__colum-two">15,00</td>
+                    <td class="buy__colum-three">
+                      <a class="buy__btn">-</a>
+                     <span class="buy__span">2</span> 
+                      <a class="buy__btn">+</a>
+                    </td>
+                    <td class="buy__colum-total">30,00€</td>
+                  </tr>
+                 
+                  <tr class="buy__fila-total">
+                    <td class="buy__total-text">Total :</td>
+                    <td class="buy__total-price"> 66,00€</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </section>
+            
+
+        </main>
+
+          <!-- CESTA COMPRA -->
+
+          <footer class="footer">
+
+          </footer>
+
+        <script src="./js/header.js" ></script>
+    </body>
+
+    </html>
