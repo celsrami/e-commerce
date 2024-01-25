@@ -19,6 +19,7 @@
   background-color: #425085;
   position: absolute;
   background-image: url(../img/fotohero.jpg);
+  background-attachment: fixed;
   background-size: cover;
   top: 0;
   width: 100%;
@@ -49,6 +50,7 @@
 }
 .hero__title {
   font-size: 40px;
+  mix-blend-mode: difference;
 }
 @media screen and (min-width: 740px) {
   .hero__title {
@@ -84,7 +86,7 @@
   display: grid;
   width: 100%;
   padding: 0 10px;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 @media screen and (min-width: 740px) {
   .shop__ul {
@@ -97,8 +99,8 @@
   margin: 0 auto;
   text-decoration: none;
   background-color: #425081;
-  width: 180px;
-  height: 200px;
+  width: 150px;
+  height: 180px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -186,6 +188,7 @@
   align-items: flex-end;
   color: white;
   border-left: 5px solid white;
+  padding: 0 25px 20px 0;
 }
 .buttonopen:hover {
   transform: scale(110%);
@@ -193,6 +196,7 @@
 }
 @media screen and (min-width: 740px) {
   .buttonopen {
+    padding: 0 15px 30px 0;
     width: 162px;
     height: 139px;
     border-top-left-radius: 245px;
@@ -201,12 +205,11 @@
 .buttonopen__icon {
   font-size: 30px;
   display: block;
-  margin-bottom: 8px;
-  margin-right: 20px;
 }
 .buttonopen__icon:hover {
   transform: translateY(-5px); /* Mueve el elemento 5px hacia arriba */
   transition: transform 0.3s;
+  font-size: 40px;
 }
 @media screen and (min-width: 740px) {
   .buttonopen__icon {
@@ -216,31 +219,24 @@
     margin-right: 30px;
   }
 }
-.buttonopen__title {
-  font-size: 14px;
-  text-align: end;
-  font-weight: 700;
-  margin: 0px 10px 7px 0;
-}
-@media screen and (min-width: 740px) {
-  .buttonopen__title {
-    margin: 0 15px 20px 0;
-    font-size: 20px;
-  }
-}
 
 .buy {
   width: 100%;
   display: none;
   position: fixed;
   z-index: 5;
-  padding: 20px;
+  padding: 5px;
   left: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.61);
   overflow: auto;
+}
+@media screen and (min-width: 740px) {
+  .buy {
+    padding: 20px;
+  }
 }
 .buy__close {
   background-color: rgba(0, 0, 0, 0.563);
@@ -251,12 +247,20 @@
   color: white;
   margin-bottom: 30px;
   position: absolute;
-  right: 30px;
-  top: 16px;
+  right: 15px;
+  top: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+@media screen and (min-width: 740px) {
+  .buy__close {
+    right: 30px;
+    top: 30px;
+    width: 50px;
+    height: 50px;
+  }
 }
 .buy__close:hover {
   transition: all 0.3s;
@@ -265,17 +269,29 @@
   color: rgb(0, 0, 0);
 }
 .buy__title {
-  font-size: 25px;
+  font-size: 18px;
   font-family: "Hello";
   color: rgb(255, 255, 255);
 }
+@media screen and (min-width: 740px) {
+  .buy__title {
+    font-size: 30px;
+  }
+}
 .buy__table {
   background-color: rgba(255, 255, 255, 0.82);
-  width: 90%;
-  margin: 100px auto 0 auto;
+  width: 100%;
+  margin: 150px auto 0 auto;
   border-radius: 20px 20px 20px 20px;
   overflow: hidden;
+  max-width: 800px;
   border-collapse: collapse;
+}
+@media screen and (min-width: 740px) {
+  .buy__table {
+    width: 90%;
+    margin: 100px auto 0 auto;
+  }
 }
 .buy__thead {
   background-color: rgb(47, 55, 57);
@@ -292,17 +308,29 @@
   width: 100%;
   border-bottom: 1px solid rgba(196, 196, 196, 0.5607843137);
   display: grid;
-  grid-template-columns: 40% 20% 20% 20%;
+  grid-template-columns: 30% 20% 30% 20%;
+  align-items: center;
+}
+@media screen and (min-width: 740px) {
+  .buy__fila {
+    grid-template-columns: 40% 20% 20% 20%;
+  }
 }
 .buy__colum-total {
   text-align: end;
 }
 .buy__fila-total {
   padding: 10px 0;
-  width: 100%;
+  width: 85%;
   border-bottom: 1px solid rgba(196, 196, 196, 0.5607843137);
   display: grid;
   grid-template-columns: 84% 10%;
+  align-items: center;
+}
+@media screen and (min-width: 740px) {
+  .buy__fila-total {
+    width: 100%;
+  }
 }
 .buy__total-text {
   font-weight: bold;
@@ -311,18 +339,28 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-top: 20px;
   color: rgb(47, 55, 57);
 }
 .buy__total-price {
+  margin-left: 10px;
   border-radius: 50%;
-  height: 70px;
-  width: 70px;
+  height: 50px;
+  width: 50px;
   background-color: rgb(13, 13, 12);
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
+  font-size: 12px;
+}
+@media screen and (min-width: 740px) {
+  .buy__total-price {
+    height: 70px;
+    width: 70px;
+  }
+}
+.buy__colum-one {
+  font-weight: bold;
 }
 .buy__colum-three {
   display: flex;
@@ -342,14 +380,22 @@
   background-color: rgb(47, 55, 57);
   color: white;
   font-weight: bold;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
+  font-size: 12px;
   cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
 }
 
 td {
   border: none;
-  padding: 8px;
+  padding: 10px 0;
+  font-size: 14px;
+}
+@media screen and (min-width: 740px) {
+  td {
+    padding: 8px;
+    font-size: 20px;
+  }
 }
 
 .footer {

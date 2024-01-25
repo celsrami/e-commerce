@@ -22,6 +22,7 @@
   width: 100vw;
   height: 70px;
   z-index: 3;
+  border-bottom: 2px solid #2f3739;
 }
 .header__logo {
   position: relative;
@@ -98,10 +99,10 @@
     align-items: center;
     flex-direction: row;
     gap: 20px;
-    width: 100%;
+    width: 90%;
     height: 0px;
     padding: 0;
-    margin-right: 30px;
+    margin-right: 60px;
   }
 }
 @media screen and (min-width: 740px) {
