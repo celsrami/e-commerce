@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* * ============================== */
 /* * ============ HEADER ========== */
 /* * ============================== */
@@ -9,84 +10,232 @@
   font-family: "Fira Sans", sans-serif;
 }
 
+.header {
+  position: fixed; /* Esto fija el header en la parte superior de la pantalla */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  background-color: #2f3739;
+  background-color: rgba(47, 55, 57, 0.8901960784);
+  justify-content: space-between;
+  width: 100vw;
+  height: 70px;
+  z-index: 3;
+}
+.header__logo {
+  position: relative;
+  height: 100px;
+  transform: translateY(15px);
+  margin-left: 20px;
+  z-index: 4;
+}
+.header__btn {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+@media screen and (min-width: 740px) {
+  .header__btn {
+    display: none;
+  }
+}
+.header__btn-line {
+  width: 20px;
+  height: 3px;
+  background-color: white;
+  margin: 3px 0;
+  transition: 0.4s;
+}
 .header__nav {
-  top: 10px;
+  z-index: 3;
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4588235294);
+  width: 100vw;
+  float: right;
+  top: 70px;
   left: 0;
-  position: fixed;
-  z-index: 2;
+  height: calc(100vh - 70px);
+  transition: display 10s ease;
+  z-index: 3;
 }
 @media screen and (min-width: 740px) {
   .header__nav {
-    width: 100%;
+    display: flex;
+    margin-left: 15px;
+    position: static;
+    background-color: transparent;
+    height: 0px;
   }
 }
-.header__item {
-  padding: 20px 0;
-  background-color: rgba(47, 55, 57, 0.49);
-  width: 200px;
+.header__ul {
+  z-index: 3;
+  background-color: #2f3739;
+  width: 60%;
+  height: 100%;
   display: flex;
-  justify-content: flex-start;
   flex-direction: column;
-  border-radius: 0 16px 16px 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 28px 0 0 25px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 @media screen and (min-width: 740px) {
-  .header__item {
+  .header__ul {
+    margin-left: 20px;
+    justify-content: end;
+    display: flex;
+    align-items: center;
     flex-direction: row;
+    gap: 20px;
     width: 100%;
-    border-radius: 0;
+    height: 0px;
+    padding: 0;
+    margin-right: 30px;
   }
 }
-.header__items {
-  color: white;
-  width: 100%;
-  text-align: center;
-  overflow: hidden;
-  transition: 0.3s ease-out all;
-}
-.header__items--click {
-  cursor: pointer;
-}
-.header__button {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 50%;
-  margin: 0 auto;
-}
-.header__arrow {
-  margin-left: auto;
-  transition: transform 0.3s;
+@media screen and (min-width: 740px) {
+  .header__li {
+    width: 400px;
+    text-align: start;
+  }
 }
 .header__link {
-  color: rgb(255, 255, 255);
-  display: block;
   text-decoration: none;
-  padding: 6px 0;
+  text-transform: uppercase;
+  font-family: "Fira Sans", sans-serif;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  position: relative;
+}
+.header__link::before {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 1px;
+  height: 2px;
+  background-color: #2f3739;
+  transition: width 0.5s ease; /* Transición para el ancho */
+}
+.header__link:hover::before {
+  background-color: white;
+  width: 100%; /* Cambia el ancho al 100% en hover */
 }
 .header__link:hover {
-  color: rgba(214, 194, 194, 0.653);
+  color: grey; /* Cambia el color a tu preferencia */
+  transition: color 0.5s ease; /* Añade una transición suave */
 }
-.header__link--inside {
-  text-align: left;
-  border-radius: 6px;
-  padding-left: 20px;
+.header__arrow {
+  font-size: 14px;
+  margin-left: 5px;
+  font-weight: 600;
+  transition: transform 0.3s;
 }
-.header__link--inside:hover {
-  color: black;
-  background-color: rgb(214, 194, 194);
+
+.open {
+  display: block;
+  transition: display 10s ease;
 }
-.header__items--show {
-  width: 50%;
-  margin-left: 70px;
-  border-left: 2px solid black;
-  transition: height 0.4s;
-  height: 0;
+
+.header__btn.menu-open .line-one {
+  transition: transform 0.5s ease;
+  transform: rotate(45deg) translate(7px, 6px);
+}
+.header__btn.menu-open .line-two {
+  transition: transform 0.5s ease;
+  opacity: 0;
+}
+.header__btn.menu-open .line-three {
+  transition: transform 0.5s ease;
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.submenu {
+  position: relative;
+}
+.submenu:hover .submenu__ul {
+  display: block;
+  transition: display 0.1s ease;
+}
+.submenu:hover .header__arrow {
+  transform: rotate(90deg);
+  transition: transform 0.1s ease;
+}
+.submenu__ul {
+  display: none;
+  padding: 10px 0 0 0;
+  transition: display 10s ease;
+  text-align: start;
 }
 @media screen and (min-width: 740px) {
-  .header__items--show {
-    border-left: 0;
+  .submenu__ul {
+    z-index: 1000;
+    width: 200px;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    background-color: #f7f7f7;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
   }
 }
-.collapsed .header__arrow {
+.submenu__li {
+  margin: 5px;
+}
+.submenu__link {
+  text-decoration: none;
+  text-transform: capitalize;
+  font-family: "Fira Sans", sans-serif;
+  color: black;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.open header__arrow {
   transform: rotate(90deg);
+}
+
+@media screen and (max-width: 740px) {
+  .animated-nav {
+    transition: all 1s;
+    animation: showNav 0.5s;
+  }
+  .exit-nav {
+    transition: all 2s;
+    animation: exitNav 1s;
+  }
+}
+@keyframes showNav {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+    /* Desplazar hacia la izquierda 50px */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes exitNav {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50px);
+    /* Desplazar hacia la izquierda 50px */
+  }
 }/*# sourceMappingURL=header.css.map */

@@ -2,105 +2,266 @@
 /* * ============ HEADER ========== */
 /* * ============================== */
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
-    font-family: 'Fira Sans', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Fira Sans", sans-serif;
 }
 
-
 .header {
-    &__nav {
-        top: 10px;
-        left: 0;
-        position: fixed;
-        z-index: 2;
-        @media screen and (min-width: 740px) {
-            width: 100%;
-        }
+  position: fixed; /* Esto fija el header en la parte superior de la pantalla */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  background-color: #2f3739;
+  background-color: #2f3739e3;
+  justify-content: space-between;
+  width: 100vw;
+  height: 70px;
+  z-index: 3;
+
+  &__logo {
+    position: relative;
+    height: 100px;
+    transform: translateY(15px);
+    margin-left: 20px;
+    z-index: 4;
+  }
+
+  &__btn {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    @media screen and (min-width: 740px) {
+      display: none;
+    }
+  }
+
+  &__btn-line {
+    width: 20px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.4s;
+  }
+
+  &__nav {
+    z-index: 3;
+    display: none;
+    position: absolute;
+    background-color: #00000075;
+    width: 100vw;
+    float: right;
+    top: 70px;
+    left: 0;
+    height: calc(100vh - 70px);
+    transition: display 10s ease;
+    z-index: 3;
+    @media screen and (min-width: 740px) {
+      display: flex;
+      margin-left: 15px;
+      position: static;
+      background-color: transparent;
+      height: 0px;
+    }
+  }
+
+  &__ul {
+    z-index: 3;
+    background-color: #2f3739;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 28px 0 0 25px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    @media screen and (min-width: 740px) {
+      margin-left: 20px;
+      justify-content: end;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      gap: 20px;
+      width: 100%;
+      height: 0px;
+      padding: 0;
+      margin-right: 30px;
+    }
+  }
+
+  &__li {
+    @media screen and (min-width: 740px) {
+      width: 400px;
+      text-align: start;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Fira Sans", sans-serif;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 1px;
+      height: 2px;
+      background-color: #2f3739;
+      transition: width 0.5s ease; /* Transición para el ancho */
     }
 
-
-    &__item{
-        padding: 20px 0;
-        background-color: rgb(47 55 57 / 49%);
-        width: 200px;
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: column;
-        border-radius: 0 16px 16px 0;
-        @media screen and (min-width: 740px) {
-            flex-direction: row;
-            width: 100%;
-            border-radius: 0;
-          }
+    &:hover::before {
+      background-color: white;
+      width: 100%; /* Cambia el ancho al 100% en hover */
     }
 
-    &__items {
-        color: white;
-        width: 100%;
-        text-align: center;
-        overflow: hidden;
-        transition: .3s ease-out all;
+    &:hover {
+      color: grey; /* Cambia el color a tu preferencia */
+      transition: color 0.5s ease; /* Añade una transición suave */
     }
+  }
 
-    &__items--click {
-        cursor: pointer;
+  &__arrow {
+    font-size: 14px;
+    margin-left: 5px;
+    font-weight: 600;
+    transition: transform 0.3s;
+  }
+}
+
+//  ============ ABIR NAV ==========
+.open {
+  display: block;
+  transition: display 10s ease;
+}
+
+// ============  MENU HAMBURGUESA X ==============
+
+.header__btn {
+  &.menu-open {
+    .line-one {
+      transition: transform 0.5s ease;
+      transform: rotate(45deg) translate(7px, 6px);
     }
-
-    &__button{
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        width: 50%;
-        margin: 0 auto;
+    .line-two {
+      transition: transform 0.5s ease;
+      opacity: 0;
     }
-
-    &__arrow {
-        margin-left: auto;
-        transition: transform .3s;
+    .line-three {
+      transition: transform 0.5s ease;
+      transform: rotate(-45deg) translate(7px, -6px);
     }
+  }
+}
 
-    &__link {
-        color: rgb(255, 255, 255);
-        display: block;
-        text-decoration: none;
-        padding: 6px 0;
-        
+//  ============ SUBMENU  =========================
+
+.submenu {
+  position: relative;
+
+  // abre el menu
+  &:hover .submenu__ul {
+    display: block;
+    transition: display 0.1s ease;
+  }
+  // cambia la flechita
+  &:hover .header__arrow {
+    transform: rotate(90deg);
+    transition: transform 0.1s ease;
+  }
+
+  &__ul {
+    display: none;
+    padding: 10px 0 0 0;
+    transition: display 10s ease;
+    text-align: start;
+    @media screen and (min-width: 740px) {
+      z-index: 1000;
+      width: 200px;
+      position: absolute;
+      top: 20px;
+      left: 0;
+      background-color: #f7f7f7;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 10px;
     }
+  }
+  &__li {
+    margin: 5px;
+  }
 
-    &__link:hover {
-        color: rgba(214, 194, 194, 0.653);
-    }
+  &__link {
+    text-decoration: none;
+    text-transform: capitalize;
+    font-family: "Fira Sans", sans-serif;
+    color: black;
+    font-weight: 600;
+    font-size: 16px;
+  }
+}
 
-    &__link--inside {
-        text-align: left;
-        border-radius: 6px;
-        padding-left: 20px;
-    }
+//  ============ TRANFORM FLECHA SUBMENU ==============
+.open header__arrow {
+  transform: rotate(90deg);
+}
 
-    &__link--inside:hover {
-        color: black;
-        background-color: rgb(214, 194, 194);
-    }
+// ============ ANIMACIONES DEL NAV ========================
 
-    &__items--show {
-        width: 50%;
-        margin-left: 70px;
-        border-left: 2px solid black;
-        transition: height .4s;
-        height: 0;
-        @media screen and (min-width: 740px) {
-            border-left: 0;
-          }
-    }
+//Se activa solo en mobile la animación de salir
+@media screen and (max-width: 740px) {
+  .animated-nav {
+    transition: all 1s;
+    animation: showNav 0.5s;
+  }
 
-    .collapsed &__arrow {
-        transform: rotate(90deg);
-    }
+  .exit-nav {
+    transition: all 2s;
+    animation: exitNav 1s;
+  }
+}
 
-  
+@keyframes showNav {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+    /* Desplazar hacia la izquierda 50px */
+  }
 
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes exitNav {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-50px);
+    /* Desplazar hacia la izquierda 50px */
+  }
 }

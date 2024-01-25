@@ -172,7 +172,7 @@
 
 .buttonopen {
   cursor: pointer;
-  z-index: 10;
+  z-index: 2;
   position: fixed;
   bottom: 0;
   right: 0;
@@ -232,7 +232,6 @@
 .buy {
   width: 100%;
   display: none;
-  display: block;
   position: fixed;
   z-index: 5;
   padding: 20px;
