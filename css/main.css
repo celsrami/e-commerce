@@ -78,52 +78,60 @@
 }
 
 .shop {
-  padding: 50px 0;
+  padding: 50px 10px;
+}
+.shop__p {
+  font-size: 12px;
+  margin: 10px auto;
+  text-align: center;
+  padding: 0 5px;
+  color: #2f3739;
+  border-radius: 20px;
 }
 .shop__ul {
   margin: 0 auto;
   gap: 25px;
   display: grid;
   width: 100%;
-  padding: 0 10px;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 @media screen and (min-width: 740px) {
   .shop__ul {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   }
 }
 .shop__li {
   position: relative;
   margin: 0 auto;
   text-decoration: none;
-  background-color: #425081;
   width: 150px;
   height: 180px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
   overflow: hidden;
   justify-content: flex-end;
 }
 @media screen and (min-width: 740px) {
   .shop__li {
-    width: 200px;
-    height: 250px;
+    width: 400px;
+    height: 450px;
     margin: 0px auto;
   }
 }
 .shop__img {
   position: absolute;
-  width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  background-position: center center;
+  background-position: 50% 0%;
   background-size: cover;
   z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .shop__article {
   width: 100%;
@@ -351,7 +359,7 @@
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-size: 12px;
+  font-size: 20px;
 }
 @media screen and (min-width: 740px) {
   .buy__total-price {
@@ -382,8 +390,19 @@
   font-weight: bold;
   width: 30px;
   height: 30px;
-  font-size: 12px;
+  font-size: 20px;
   cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease, border 0.3s ease;
+}
+.buy__btn:hover {
+  background-color: rgba(47, 55, 57, 0.824);
+  border: 2px solid rgb(47, 55, 57);
+}
+.buy__p {
+  color: white;
+  text-align: center;
+  margin: 10px 0;
+  font-size: 16px;
 }
 
 td {
